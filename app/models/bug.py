@@ -60,3 +60,6 @@ class Bug(Base):
 
     comments = relationship("Comment", back_populates="bug", cascade="all, delete-orphan")
     attachments = relationship("Attachment", back_populates="bug", cascade="all, delete-orphan")
+    reported_by = relationship("User", foreign_keys=[reported_by_id], back_populates="reported_bugs")
+    assigned_to = relationship("User", foreign_keys=[assigned_to_id], back_populates="assigned_bugs")
+    project = relationship("Project", back_populates="bugs")

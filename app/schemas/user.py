@@ -19,8 +19,10 @@ class UserInDB(BaseModel):
         from_attributes = True
 
 class Token(BaseModel):
-    access_token: str
-    token_type: str = "bearer"
+    user: UserInDB
+    accessToken: str
+    refreshToken: str
+    expiresIn: int
 
 class ForgotPasswordRequest(BaseModel):
     email: EmailStr

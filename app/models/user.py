@@ -25,6 +25,6 @@ class User(Base):
     role = Column(Enum(RoleEnum), default=RoleEnum.user, nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
 
-    reported_bugs = relationship("Bug", back_populates="reported_by_id")
-    assigned_bug = relationship("Bug", back_populates="assigned_to_id")
+    reported_bugs = relationship("Bug", foreign_keys="Bug.reported_by_id", back_populates="reported_by")
+    assigned_bugs = relationship("Bug", foreign_keys="Bug.assigned_to_id", back_populates="assigned_to")
     projects = relationship("Project",secondary="project_user",back_populates="users")
