@@ -24,3 +24,10 @@ class Settings(BaseSettings):
     # Authentication Settings
     ACCESS_TOKEN_EXPIRE_MINUTES: int = os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", 60)
     REFRESH_TOKEN_EXPIRE_DAYS: int = os.getenv("REFRESH_TOKEN_EXPIRE_DAYS", 7)
+
+    # Argon Parameters
+    ARGON2_TIME_COST: int = os.getenv("ARGON2_TIME_COST", 2)
+    ARGON2_MEMORY_COST: int = os.getenv("ARGON2_MEMORY_COST", 102400)
+    ARGON2_PARALLELISM: int = os.getenv("ARGON2_PARALLELISM", 8)
+    ARGON2_HASH_LEN: int = os.getenv("ARGON2_HASH_LEN", 32)
+    ARGON2_SALT_LEN: int = os.getenv("ARGON2_SALT_LEN", 16)
